@@ -3,6 +3,24 @@ import { connect } from "react-redux";
 import { setFriends, deleteFriendAsync } from "../state/actionCreators";
 import Friend from "./Friend";
 import FriendForm from "./FriendForm";
+import styled from "styled-components";
+
+const StyledList = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 80%;
+  .container {
+    border: 1px solid rgb(230, 230, 230);
+    color: black;
+    background: white;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+`;
 
 class FriendList extends Component {
   componentDidMount() {
@@ -10,8 +28,8 @@ class FriendList extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
+      <StyledList>
+        <div className="container">
           {this.props.friends.map(friend => {
             return (
               <Friend
@@ -21,11 +39,10 @@ class FriendList extends Component {
               />
             );
           })}
-        </div>
-        <div>
+
           <FriendForm />
         </div>
-      </div>
+      </StyledList>
     );
   }
 }

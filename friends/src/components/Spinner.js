@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 const StyledSpinner = styled.div`
+  height: 100%;
   .spinner {
     display: ${props => (props.spinnerOn ? "block" : "none")};
   }
   .children {
+    height: 80%;
+    background-color: rgb(250, 250, 250);
     display: ${props => (props.spinnerOn ? "none" : "block")};
   }
 `;
